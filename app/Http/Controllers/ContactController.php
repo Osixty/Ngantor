@@ -14,9 +14,10 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('contact',[
-            "title" => "Contact"
-        ]);
+        $contacts = Contact::paginate(5);
+
+
+       return view('admin/contact/index', compact('contacts'));
     }
 
     /**
@@ -26,7 +27,9 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('contact',[
+            "title" => "Contact"
+        ]);
     }
 
     /**
@@ -41,7 +44,7 @@ class ContactController extends Controller
         $contact = Contact::create($request->all());
         $contact->save();
         
-        return redirect('contact');
+        return redirect()->route('contact.create');
     }
 
     /**
@@ -63,7 +66,8 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        return view('admin/contact/edit', compact('contact'));
     }
 
     /**
@@ -75,9 +79,13 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $contact = Contact::findOrFail($id);
+        $contact->update($request->all());
+        $contact->save();
 
+        return redirect()->route('contact.index');
+    }
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -86,6 +94,10 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
+    
+        return redirect()->route('contact.index');
+        
     }
 }

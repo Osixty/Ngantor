@@ -17,9 +17,10 @@
                             <input type="email" id="input-email" class="form-control form-control-user" name="email">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="pesan"></textarea>
                             <label for="exampleFormControlTextarea1" class="form-label">Pesan</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="pesan"></textarea>
                         </div>
+                        <br>
                         <div class="text-right">
                             <button type="submit" class="btn btn-primary">Kirim</button>
                         </div>
