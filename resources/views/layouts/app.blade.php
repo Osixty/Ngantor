@@ -37,7 +37,6 @@
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
-
     </div>
 
     @include('partials/js');

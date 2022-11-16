@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@extends('layouts.app')
 @section('title', 'Zidan | Dashboard')
 @section('content')
 <div class="main-content">
